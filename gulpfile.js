@@ -51,6 +51,7 @@
       vendor: [
         directories.node + '/foundation-sites/dist/css/foundation.css',
         directories.node + '/bootstrap/dist/css/bootstrap.css',
+        directories.node + '/easy-autocomplete/dist/easy-autocomplete.css',
         directories.node + '/magnific-popup/dist/magnific-popup.css'
       ],
       dest: directories.dest + '/css'
@@ -68,6 +69,7 @@
         directories.node + '/bootstrap/dist/js/bootstrap.js',
         directories.node + '/collect.js/build/collect.js',
         directories.node + '/moment/moment.js',
+        directories.node + '/easy-autocomplete/dist/jquery.easy-autocomplete.js',
         directories.node + '/geolocation-marker/geolocation-marker.js',
         directories.src + '/scripts/vendor/**/*.js'
       ],

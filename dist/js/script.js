@@ -2,6 +2,22 @@ const baseUrl = '../dist';
 const assetUrl = '../dist/assets';
 const mapsKey = 'AIzaSyDA9w9HOxuTsR8bVmnvQVDE6CJacA0uEQ0';
 
+var options = {
+
+  url: assetUrl + '/data/PharmacyJson.json',
+
+  getValue: "name",
+
+  list: {
+    match: {
+      enabled: true
+    }
+  },
+
+  theme: "square"
+};
+
+$("#name-search").easyAutocomplete(options);
 
 $(document).ready(function() {
     if (document.getElementById('store-locator')) {
@@ -224,7 +240,7 @@ class StoreLocator {
 
     onQueryChanged(event) {
         this.filters.query = $(event.target).val().toLowerCase();
-        this.$storeLocator.find('.search-field').val(this.filters.query);
+        this.$storeLocator.find('.mirror-field').val(this.filters.query);
         this.setSearchKeyUpTimeout();
     }
 
@@ -428,6 +444,10 @@ class StoreMap {
     }
 
     onSearch(query) {
+        console.log('onSearch query' + query);
+        //TODO: split up by make an location search and place name search function
+        //https://developers.google.com/places/web-service/search
+        //Search to places
         if (this.query == query || this.geocodeSearch) {
             return;
         }
