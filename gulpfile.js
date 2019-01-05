@@ -50,6 +50,7 @@
       ],
       vendor: [
         directories.node + '/foundation-sites/dist/css/foundation.css',
+        directories.node + '/bootstrap/dist/css/bootstrap.css',
         directories.node + '/magnific-popup/dist/magnific-popup.css'
       ],
       dest: directories.dest + '/css'
