@@ -1,0 +1,156 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="height=device-height,width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title>Skeleton</title>
+  <link href="https://fonts.googleapis.com/css?family=Cambo|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.min.css">
+</head>
+
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
+
+    <symbol id="icon-caret-down" viewBox="0 0 14 8">
+      <path d="M7 5.586L12.293.293a1 1 0 0 1 1.414 1.414l-6 6a1 1 0 0 1-1.414 0l-6-6A1 1 0 1 1 1.707.293L7 5.586z"></path>
+    </symbol>
+
+    <symbol id="icon-caret-up" viewBox="0 0 14 8">
+      <path d="M7 2.414L1.707 7.707A1 1 0 0 1 .293 6.293l6-6a1 1 0 0 1 1.414 0l6 6a1 1 0 1 1-1.414 1.414L7 2.414z"></path>
+    </symbol>
+
+  </svg>
+  <section class="store_locator" id="store-locator">
+    <div class="container">
+      <div class="row">
+        <div class="col col-lg-5 searchpanel">
+          <form>
+            <div class="searcharea">
+              <input type="hidden" name="storelocator" class="loaded-storelocator" value="" />
+              <input type="hidden" name="store" class="selected-store-id" value="" />
+              <input type="hidden" class="selected-store-name" value="" />
+              <input type="hidden" class="selected-store-address" value="" />
+              <input type="hidden" class="selected-store-zipcode" value="" />
+              <input type="hidden" class="selected-store-city" value="" />
+              <input type="hidden" class="selected-store-linscriptum" value="" />
+              <h2>Zoek uw poppodia</h2>
+              <div class="container">
+                <div class="row form-group d-none d-sm-flex filter">
+                  <div class="col form-check left">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input open-saterday">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Zaterdag open</span>
+                    </label>
+                  </div>
+                  <div class="col form-check right">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input has-atm">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Afhaalautomaat</span>
+                    </label>
+                  </div>
+                  <div class="d-block w-100"></div>
+                  <div class="col form-check left">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input open-in-evening">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description d-lg-none d-xl-block">Na 17.30 uur open</span>
+                      <span class="custom-control-description d-none d-lg-block d-xl-none">Na 17.30 open</span>
+                    </label>
+                  </div>
+                  <div class="col form-check right">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input has-pick-up-point">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Afhaalpunt</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="row form-group d-sm-none filter">
+                  <div class="col form-check">
+                    <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input has-pick-up-point">
+                      <span class="custom-control-indicator"></span>
+                      <span class="custom-control-description">Toon alleen apotheken met een afhaalpunt</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="row form-group">
+                  <div class="col">
+                    <div class="inputwrapper">
+                      <button type="button" class="btn-icon left btn-locate">
+                        locate
+                      </button>
+                      <span class="btn-locate-disabled" data-toggle="tooltip" title="Helaas kunnen we uw locatie niet bepalen." data-content="Helaas kunnen we uw locatie niet bepalen." data-placement="bottom" data-trigger="hover"></span>
+                      <input type="text" id="location-search-mobile" class="form-control d-md-none search-field" placeholder="Zoeken">
+                      <input type="text" id="location-search" class="form-control d-none d-md-block search-field" placeholder="Zoek op postcode of plaats">
+                      <button class="btn-icon right btn-search" type="button">
+                        search
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="results flex-column">
+            <div class="result template hidden">
+              <div class="graphic">
+                <span class="icon">
+                                  <svg class="icon-plus">
+                                      <use xlink:href="#logo-plus" class="test"></use>
+                                  </svg>
+                                  <svg class="icon-check">
+                                      <use xlink:href="#check"></use>
+                                  </svg>
+                              </span>
+              </div>
+              <div class="details">
+                <div class="text">
+                  <span class="name"></span>
+                  <span class="city"></span>
+                  <span class="opening-hrs"></span>
+                  <a href="" class="link-apotheek read-more">Naar de apotheekpagina</a>
+                </div>
+                <ul class="filter-icons">
+                  <li class="afhaalautomaat has-atm has-tooltip" data-toggle="tooltip" title="Afhaalautomaat" data-content="Afhaalautomaat" data-placement="top" data-trigger="hover">
+                    afhaalautomaat
+                  </li>
+                  <li class="has-pick-up-point has-tooltip" data-toggle="tooltip" data-content="Afhaalpunt" data-placement="top" data-trigger="hover" title="Afhaalpunt">
+                    afhaalpunt
+                  </li>
+                  <li class="z has-skin-care has-tooltip" data-toggle="tooltip" data-content="z" data-placement="top" data-trigger="hover" title="zorgvoormijnhuid.nl">
+                    zvmh
+                  </li>
+                </ul>
+              </div>
+              <button type="button" id="btn-next-step" class="btn btn-primary btn-next-step btn-move btn-visible" data-target="next">Volgende stap</button>
+              <div class="form-check">
+                <label class="custom-control custom-checkbox">
+                  <input type="checkbox" class="favorite_checkbox custom-control-input" data-fico="" data-pharmacyname="" data-pharmacyzipcode="" data-pharmacyaddress="" data-pharmacycity="">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Stel in als standaard</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="store-locator-map"></div>
+      </div>
+    </div>
+  </section>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places&key=AIzaSyDA9w9HOxuTsR8bVmnvQVDE6CJacA0uEQ0"></script>
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+  <script src="js/vendor.min.js"></script>
+  <script src="js/script.min.js"></script>
+  <script>
+    <!-- TODO: analytics -->
+  </script>
+</body>
+
+</html>

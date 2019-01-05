@@ -1,0 +1,17 @@
+@import 'global/responsive';
+@import '../../node_modules/foundation-sites/scss/foundation';
+@include foundation-global-styles;
+@include foundation-grid;
+
+@import 'global/styleguide';
+@import 'global/fonts';
+@import 'global/animations';
+@import 'global/mixins';
+@import 'global/typography';
+@import 'global/base';
+@import 'global/content';
+@import 'global/icons';
+@import 'global/buttons';
+@import 'global/forms';
+@import 'global/elements';
+@import 'global/map';

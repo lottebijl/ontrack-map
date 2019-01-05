@@ -1,0 +1,15 @@
+// breakpoints
+$grid-column-count: 24;
+$grid-column-gutter: (
+  small: 0,
+  medium: 10,
+  large: 30
+);
+$breakpoints: (
+  small: 0,
+  medium: 768px,
+  large: 1024px,
+  xlarge: 1440px,
+  xxlarge: 1640px,
+);
+$breakpoint-classes: (small medium large xlarge xxlarge);

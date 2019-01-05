@@ -1,0 +1,19 @@
+svg.icon {
+  fill: $black;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  position: relative;
+
+  &-arrow-left,
+  &-arrow-right {
+    width: 15px;
+    height: 15px;
+  }
+
+  &-caret-down,
+  &-caret-up {
+    width: 14px;
+    height: 14px;
+  }
+}

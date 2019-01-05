@@ -1,0 +1,141 @@
+$color-red:             #C02327;
+$color-gold:            #967750;
+$color-beige:           #EEEAE5;
+$color-darkgray:        #1E1E1E;
+
+
+
+$color-white      : #ffffff;
+$color-black      : #000000;
+$color-linkedin   : #0177B5;
+$color-facebook   : #3C5899;
+$color-whatsapp   : #69C238;
+
+$color-shadow       : rgba(3,29,64,0.2);
+$color-shadow-light : rgba(3,29,64,0.08);
+$color-light        : rgba(255,255,255,0.2);
+
+
+$box-shadow         : 0 10px 20px 0 rgba(41,37,41,0.10);
+
+$font-family      : 'Poppins', sans-serif;
+$font-imprima     : 'Imprima', sans-serif;
+$font-light       : 300;
+$font-normal      : 400;
+$font-medium      : 500;
+$font-semibold    : 600;
+$font-bold        : 700;
+
+$font-regular     : 1.6rem;
+$font-small       : 1.4rem;
+$font-small-2     : 1.2rem;
+$font-big         : 1.6rem;
+
+$font-head-1: 4.0rem;
+$font-head-2: 4.0rem;
+$font-head-3: 3.6rem;
+$font-head-4: 3.2rem;
+$font-head-5: 2.2rem;
+$font-head-6: 1.8rem;
+
+$font-line-regular: 3.2rem;
+$font-letterspacing: 0.042rem;
+
+$res-mobile   : 400px;
+$res-portrait : 600px;
+$res-landscape: 768px;
+$res-desktop  : 1160px;
+$res-jumbo    : 1440px;
+$res-xlarge   : 2000px;
+
+$res-small : 320px;
+$res-medium: 768px;
+$res-large : 1160px;
+$res-max   : 1440px;
+
+
+$spacing: 30px;
+$spacing-big: 60px;
+$spacing-jumbo: 60px;
+$spacing-small: 15px;
+$spacing-extrasmall: 10px;
+
+$spacing-m: 10px;
+$spacing-p: 20px;
+$spacing-l: 30px;
+$spacing-d: 0;
+$spacing-j: 0;
+
+$spacing-fluid: 5%;
+$spacing-big-fluid: 10%;
+$spacing-jumbo-fluid: 20%;
+$spacing-small-fluid: 2.5%;
+$spacing-extrasmall-fluid: 1%;
+
+
+/* Mobile variables */
+
+$font-regular-m     : 1.4rem;
+$font-small-m       : 1.2rem;
+$font-small-2-m     : 1.1rem;
+$font-big-m         : 1.4rem;
+
+$font-head-1-m: 2.5rem;
+$font-head-2-m: 2.5rem;
+$font-head-3-m: 2.5rem;
+$font-head-4-m: 2.2rem;
+$font-head-5-m: 2.2rem;
+$font-head-6-m: 1.8rem;
+
+$font-line-regular-m: 3.2rem;
+
+$res-mobile-m   : 300px;
+$res-portrait-m : 600px;
+$res-landscape-m: 800px;
+$res-desktop-m  : 1160px;
+$res-jumbo-m    : 1440px;
+
+$res-small-m : 320px;
+$res-medium-m: 768px;
+$res-larga-m : 1160px;
+$res-max-m   : 1440px;
+
+$spacing-m: 30px;
+$spacing-big-m: 60px;
+$spacing-jumbo-m: 60px;
+$spacing-small-m: 15px;
+$spacing-extrasmall-m: 10px;
+
+//* mobile portrait landscape desktop jumbo */
+$spacing-m-m: 10px;
+$spacing-p-m: 20px;
+$spacing-l-m: 30px;
+$spacing-d-m: 0;
+$spacing-j-m: 0;
+
+$spacing-fluid-m: 5%;
+$spacing-big-fluid-m: 10%;
+$spacing-jumbo-fluid-m: 20%;
+$spacing-small-fluid-m: 2.5%;
+$spacing-extrasmall-fluid-m: 1%;
+
+/* Animations */
+
+$ease-out: cubic-bezier(.36,.03,.28,.99);
+$ease-in: cubic-bezier(.46,.09,.82,.73);
+$ease-back-end: cubic-bezier(.35,.01,.44,1.75);//cubic-bezier(.49,-0.08,.66,1.54);
+$ease-back-start: cubic-bezier(1.54,.66,-0.08,.49);
+
+$transition-out: 0.5s cubic-bezier(.36,.03,.28,.99);
+$transition-out-slow: 1s cubic-bezier(.36,.03,.28,.99);
+$transition-out-fast: 0.15s cubic-bezier(.36,.03,.28,.99);
+
+$transition-in: 0.5s cubic-bezier(.46,.09,.82,.73);
+$transition-in-slow: cubic-bezier(.46,.09,.82,.73);
+$transition-in-fast: 0.15s cubic-bezier(.46,.09,.82,.73);
+
+$transition: all $transition-out;
+$transition-all-out: all $transition-out;
+$transition-all-in: all $transition-in;
+
+$border-radius: 2px;

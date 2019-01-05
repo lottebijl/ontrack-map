@@ -1,0 +1,667 @@
+.store_locator {
+	padding: 60px 20px;
+	display: block;
+	height: 100%;
+	position: relative;
+	// z-index: -1;
+
+	//z-index here is for dev purposes
+
+	@include breakpoint(large) {
+		padding: 60px 0;
+		min-height: 630px;
+	}
+
+	@include breakpoint(xlarge) {
+		min-height: 630px;
+	}
+
+	.icons-hide {
+		display: none;
+	}
+
+	.searchpanel {
+		overflow: hidden;
+		color: blue;
+		padding: 0;
+    z-index:100;
+    position: relative;
+		@include breakpoint(large) {
+			max-width: 377px;
+		}
+
+		@include breakpoint(xlarge) {
+			max-width: 477px;
+		}
+
+		form {
+			border-top: 1px solid grey;
+			border-right: 1px solid grey;
+			border-left: 1px solid grey;
+			@include breakpoint(large) {
+				border: 0;
+			}
+		}
+
+		.searcharea {
+			background-color: white;
+            padding: 30px;
+
+			@include breakpoint(xlarge) {
+                padding: 30px 40px 30px 50px;
+			}
+
+			h2 {
+				font-size: 22px;
+				line-height: 38px;
+				font-weight: bold;
+				margin-bottom: 12px;
+
+				@include breakpoint(medium) {
+					margin-bottom: 12px;
+				}
+
+				@include breakpoint(large) {
+					font-size: 26px;
+				}
+
+				@include breakpoint(xlarge) {
+					font-size: 28px;
+					margin-bottom: 14px;
+				}
+
+			}
+
+			.container {
+				padding: 0;
+
+				.col {
+					padding: 0 0 0 20px;
+
+					&.left {
+						max-width: 160px;
+
+						@include breakpoint(medium) {
+							max-width: 210px;
+						}
+
+						@include breakpoint(large) {
+							max-width: 160px;
+						}
+
+						@include breakpoint(xlarge) {
+							max-width: 210px;
+						}
+
+					}
+
+					&.right {
+						padding: 0 0 0 0;
+
+						.custom-control {
+							padding-left: 32px;
+							margin-right: 0;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+		.form-check {
+			@include breakpoint(medium) {
+				margin-bottom: 4px;
+			}
+
+		}
+
+		.custom-control {
+			font-size: 13px;
+			line-height: 18px;
+			color: blue;
+			padding-left: 32px;
+			margin-right: 0;
+
+			@include breakpoint(medium) {
+				line-height: 22px;
+			}
+
+			@include breakpoint(large) {
+			}
+
+		}
+
+		label {
+			margin-bottom: 0;
+		}
+
+		.form-group {
+			margin: 0 0 0 -20px;
+
+			@include breakpoint(medium) {
+				margin: 0 -20px;
+			}
+
+			&.filter {
+				margin-bottom: 7px;
+
+				@include breakpoint(medium) {
+					padding: 0 20px 0 0;
+					margin-bottom: 8px;
+				}
+
+				@include breakpoint(medium) {
+					margin-bottom: 9px;
+				}
+
+			}
+
+		}
+
+		.inputwrapper {
+			padding: 0 0 0 0;
+			font-family: Ubuntu;
+			height: 40px;
+			margin: 10px 0;
+            position: relative;
+
+			@include breakpoint(medium) {
+				margin-right: 30px;
+			}
+
+			@include breakpoint(medium) {
+			}
+
+			.form-control {
+				border: none;
+				border-left: 1px solid grey;
+        padding: 3px 36px 3px 12px;
+				margin: 6px auto;
+				border-radius: 0;
+				font-size: 13px;
+        width: calc(100% - 36px);
+				float: left;
+
+				&::placeholder {
+					color: blue;
+				}
+
+				&:focus {
+					color: blue;
+					box-shadow: none;
+
+					&::placeholder {
+						color: grey;
+					}
+
+				}
+
+			}
+
+			&:before {
+				// 	content: url('../svg/target.svg');
+				// 	width: 18px;
+				// 	height: 18px;
+				// 	display: block;
+				// 	position: absolute;
+				// 	left: 30px;
+				// 	top: 10px;
+				//
+			}
+
+            .btn-locate-disabled {
+                display: none;
+                position: absolute;
+                width: 36px;
+                height: 100%;
+            }
+
+			.btn-icon {
+				height: 100%;
+				position: relative;
+
+				svg {
+					position: absolute;
+					// right: 36px;
+					top: 10px;
+				}
+
+                &:not(:disabled):hover {
+					svg {
+						path {
+							fill: blue;
+						}
+                    }
+                }
+
+                &:disabled {
+                    cursor: default;
+                    + .btn-locate-disabled {
+                        display: block;
+					}
+				}
+
+				&.left {
+					float: left;
+					width: 36px;
+
+					svg {
+						position: absolute;
+						left: 9px;
+						top: 10px;
+					}
+
+				}
+
+				&.right {
+                    position: absolute;
+                    background-color: white;
+					float: right;
+					width: 38px;
+					top: 0;
+					right: 0;
+
+					svg {
+						position: absolute;
+						left: 7px;
+						top: 10px;
+
+						@include breakpoint(medium) {
+							left: 10px;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	.results {
+		background-color: grey;
+		display: block;
+    max-height: 240px;
+		-ms-overflow-style:scrollbar;
+		scrollbar-base-color: transparent;
+	  scrollbar-face-color: grey;
+	  scrollbar-highlight-color: transparent;
+	  scrollbar-track-color: grey;
+	  scrollbar-arrow-color: grey;
+	  scrollbar-shadow-color: grey;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		&::-webkit-scrollbar-track {
+        background-color:transparent;
+    }
+    &::-webkit-scrollbar {
+        width: 10px;
+				background-color: grey;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: grey;
+        border-radius:10px;
+    }
+		@include breakpoint(large) {
+        max-height: 280px;
+		}
+
+		.result {
+			border-bottom: 2px solid white;
+			// display: flex;
+			// align-items: stretch;
+			position: relative;
+			-webkit-transition: height 0.3s; /* Safari */
+			transition: height 0.3s;
+			min-height: 145px;
+			padding-left: 70px;
+			@include breakpoint(medium) {
+				min-height: auto;
+			}
+
+			@include breakpoint(xlarge) {
+				min-height: 115px;
+				padding-left:90px;
+			}
+
+			&:hover {
+				cursor: pointer;
+			}
+
+			&:last-of-type {
+				border-bottom: none;
+			}
+			&.favorite{
+			}
+
+			&.active {
+				pointer-events:none;
+				cursor:default;
+				@include breakpoint(xlarge) {
+					min-height: 147px;
+				}
+
+				.details .text .link-apotheek{
+					display: block;
+				}
+
+				.form-check{
+					display: block;
+				}
+
+				.graphic .icon {
+					background-color: blue;
+
+					.icon-plus {
+						display: none;
+					}
+
+					.icon-check {
+						display: block;
+					}
+
+				}
+
+				.btn-next-step, .has-tooltip, .link-apotheek{
+					pointer-events:auto;
+				}
+			}
+
+			.graphic {
+				position:absolute;
+				top:0px;
+				left:0px;
+				padding: 0;
+				height: 80px;
+				flex-basis: 93px;
+
+				@include breakpoint(medium) {
+					flex-basis: 81px;
+				}
+
+				@include breakpoint(large) {
+					flex-basis: 100px;
+				}
+
+				@include breakpoint(xlarge) {
+					flex-basis: 110px;
+					height: 80px;
+					top: 17px;
+					left: 10px;
+				}
+
+				.icon {
+					position: absolute;
+					background-color: white;
+					border-radius: 100%;
+					position: absolute;
+					top: 20px;
+					left: 21px;
+					width: 30px;
+					height: 30px;
+					display: block;
+					padding: 10px;
+
+					@include breakpoint(medium) {
+						top: 36px;
+						left: 19px;
+						height: 40px;
+						width: 40px;
+					}
+
+					@include breakpoint(xlarge) {
+						top: 19px;
+					}
+
+					.icon-plus {
+						position: absolute;
+						top: 9px;
+						left: 7px;
+						width: 16px;
+						height: 12px;
+
+						@include breakpoint(medium) {
+							top: 12px;
+							left: 12px;
+							height: 16px;
+						}
+
+					}
+
+					.icon-check {
+						display: none;
+						position: absolute;
+						left: 9px;
+						top: 9px;
+						width: 12px;
+						height: 12px;
+
+						@include breakpoint(medium) {
+							left: 14px;
+							top: 13px;
+							height: 15px;
+						}
+
+					}
+
+				}
+
+			}
+
+		}
+		.form-check{
+			display:none;
+			pointer-events: auto;
+			margin-bottom: 20px;
+		}
+		.details {
+			display: flex;
+			flex-direction: column;
+			font-size: 13px;
+			line-height: 22px;
+			padding: 23px 10px 24px 0;
+			width: 100%;
+
+			@include breakpoint(medium) {
+				flex-direction: row;
+			}
+
+			.text {
+				display: flex;
+				flex-direction: column;
+				font-size: 13px;
+
+				@include breakpoint(large) {
+					font-size: 15px;
+				}
+
+				.name {
+					font-weight: bold;
+					color: white;
+					max-width: 255px;
+					max-height: 44px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+
+					@include breakpoint(large) {
+						max-width: 210px;
+						max-height: 44px;
+					}
+
+					@include breakpoint(xlarge) {
+						max-width: 260px;
+					}
+
+				}
+
+				.city {
+					color: grey;
+				}
+
+				.opening-hrs {
+					color: blue;
+				}
+				.link-apotheek{
+					display: none;
+					margin-top: 10px;
+					color: green;
+
+					&:hover {
+						color: blue;
+					}
+
+					svg	path {
+						fill: green;
+					}
+
+				}
+
+			}
+
+			.filter-icons {
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				display: inline;
+				position: relative;
+				top: 13px;
+
+				@include breakpoint(medium) {
+					margin-left: auto;
+					top: 3px;
+					right: 28px;
+				}
+
+				@include breakpoint(large) {
+					right: 40px;
+				}
+
+				li {
+					float: left;
+					padding: 0 12px 0 0;
+
+					@include breakpoint(medium) {
+						padding: 0 0 0 12px;
+					}
+
+					&.z {
+						svg {
+							height: 14px;
+						}
+
+					}
+
+					&.afhaalautomaat {
+						svg {
+							height: 17px;
+							width: 12px;
+						}
+
+					}
+
+					&:hover svg	path {
+						fill: blue;
+					}
+
+				}
+
+			}
+
+		}
+		.btn-next-step {
+			max-width: 165px;
+			font-size: 13px;
+			padding: 7px 20px 7px 20px;
+			display:none;
+			background-color: blue;
+			box-shadow: inset 0 -2px 0 0 rgba(0, 38, 100, 0.15);
+			height: 40px;
+			font-weight: 500;
+			line-height: 1.73;
+			text-align: left;
+			color: white;
+			border-bottom-right-radius: 10px;
+			margin-bottom:20px;
+			@include breakpoint(medium) {
+				width:auto;
+			}
+			&:hover {
+				background-color: blue;
+				box-shadow: inset 0 -2px 0 0 rgba(0, 38, 100, 0.15);
+			}
+
+			&::after {
+				content: '';
+				width: 15px;
+				height: 10px;
+				background: url('../images/svg/arrow-right-light.svg') no-repeat;
+				display: inline-block;
+				margin-left: 19px;
+			}
+		}
+		p {
+			margin-bottom: 0;
+		}
+
+		img {
+			cursor: pointer;
+		}
+
+	}
+
+}
+
+#store-locator-map {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	pointer-events: none;
+	display: none;
+	@include breakpoint(large) {
+		display: block;
+	}
+	@include breakpoint(large) {
+		pointer-events: unset;
+	}
+}
+
+.pac-container {
+    .pac-item {
+        .pac-icon {
+            background-position: 3px 1px;
+            background-size: 12px;
+            background-repeat: no-repeat;
+            background-image: url('../images/svg/marker-gray.svg');
+        }
+        &.pac-item-selected .pac-icon {
+            background-image: url('../images/svg/marker-highlighted.svg');
+        }
+    }
+    &:after {
+        background-image: none !important;
+        height: 0px;
+    }
+}
+
+body.form{
+	.store_locator{
+		.results .result.active{
+			.btn-next-step{
+				display: inline-block;
+				@include breakpoint(medium) {
+					display:block;
+				}
+			}
+			.read-more.link-apotheek{
+				display:none;
+			}
+		}
+	}
+}
