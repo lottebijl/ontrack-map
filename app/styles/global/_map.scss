@@ -499,8 +499,12 @@
 
 				}
 
-				.city {
-					color: grey;
+				.city, .address {
+					color: darkgrey;
+				}
+				.capacity{
+					color:black;
+					font-size:11px;
 				}
 
 				.opening-hrs {

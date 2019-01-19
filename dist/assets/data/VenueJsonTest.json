@@ -1,0 +1,19 @@
+[{
+    "id": 1000,
+    "venueName": "BENU Apotheek De Waal",
+    "venueWebsite": "/apotheek/de-waal",
+    "venueZipcode":"6663 MM",
+    "venueAddress":"Thermionpark 2",
+    "venueLatitude": 51.871865,
+    "venueLongitude": 5.860828,
+    "venueCity":"Lent"
+}, {
+    "id": 1010,
+    "venueName": "BENU Apotheek Atlantis",
+    "venueWebsite": "/apotheek/atlantis",
+    "venueZipcode":"3893 CD",
+    "venueAddress" : "Krachtenveld 1-5",
+    "venueLatitude": 52.331471,
+    "venueLongitude": 5.525755,
+    "venueCity":"Zeewolde"
+}]

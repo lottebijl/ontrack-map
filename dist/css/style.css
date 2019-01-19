@@ -17847,8 +17847,11 @@ svg.icon {
           @media screen and (min-width: 90em) {
             .store_locator .results .details .text .name {
               max-width: 260px; } }
-        .store_locator .results .details .text .city {
-          color: grey; }
+        .store_locator .results .details .text .city, .store_locator .results .details .text .address {
+          color: darkgrey; }
+        .store_locator .results .details .text .capacity {
+          color: black;
+          font-size: 11px; }
         .store_locator .results .details .text .opening-hrs {
           color: blue; }
         .store_locator .results .details .text .link-apotheek {

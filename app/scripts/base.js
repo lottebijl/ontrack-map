@@ -4,9 +4,9 @@ const mapsKey = 'AIzaSyDA9w9HOxuTsR8bVmnvQVDE6CJacA0uEQ0';
 
 var options = {
 
-  url: assetUrl + '/data/PharmacyJson.json',
+  url: assetUrl + '/data/VenueJson.json',
 
-  getValue: "name",
+  getValue: "venueName",
 
   list: {
     match: {
@@ -30,7 +30,7 @@ class StoreLocator {
     constructor($storeLocator) {
         this.$storeLocator = $storeLocator;
         this.$results = this.$storeLocator.find('.results');
-        this.storesJsonEndpoint = assetUrl + '/data/PharmacyJson.json';
+        this.storesJsonEndpoint = assetUrl + '/data/VenueJson.json';
         this.map = new StoreMap(this);
         this.stores;
         this.shownStores;
@@ -99,30 +99,43 @@ class StoreLocator {
         this.stores.each((store) => {
             let $row = $template.clone().removeClass('hidden').removeClass('template');
 
-            let closedAt = store.opening_hours[today].afternoon_close;
+            // let closedAt = store.opening_hours[today].afternoon_close;
 
             $row.attr('id', 'id-' + store.id);
-            $row.find('.name').text(store.name);
-            $row.find('.city').html(store.location.city + ' <small class="distance"></small>');
+            $row.find('.name').text(store.venueName);
+            $row.find('.city').html(store.venueCity + ' <small class="distance"></small>');
+            $row.find('.address').html(store.venueAddress);
+
+            if (store.venueCategory){
+              if (store.venueCategory == 'A'){
+                $row.find('.capacity').html('minimaal 450 bezoekers');
+              }
+              if (store.venueCategory == 'B'){
+                $row.find('.capacity').html('minimaal 350 bezoekers');
+              }
+              if (store.venueCategory == 'C'){
+                $row.find('.capacity').html('tussen de 200-300 bezoekers');
+              }
+            }
 
             if (store.id === fico) {
                 $row.filter('#id-' + fico).addClass('active');
             }
-            if (closedAt === null) {
-                $row.find('.opening-hrs').text('Vandaag gesloten');
-            } else {
-                $row.find('.opening-hrs').text('Vandaag open tot ' + closedAt);
-            }
-            $row.find('.link-apotheek').attr('href', store.url);
-            if (!store.has_skin_care) {
-                $row.find('.has-skin-care').remove();
-            }
-            if (!store.has_atm) {
-                $row.find('.has-atm').remove();
-            }
-            if (!store.has_pick_up_point) {
-                $row.find('.has-pick-up-point').remove();
-            }
+            // if (closedAt === null) {
+            //     $row.find('.opening-hrs').text('Vandaag gesloten');
+            // } else {
+            //     $row.find('.opening-hrs').text('Vandaag open tot ' + closedAt);
+            // }
+            $row.find('.link-apotheek').attr('href', store.venueWebsite);
+            // if (!store.has_skin_care) {
+            //     $row.find('.has-skin-care').remove();
+            // }
+            // if (!store.has_atm) {
+            //     $row.find('.has-atm').remove();
+            // }
+            // if (!store.has_pick_up_point) {
+            //     $row.find('.has-pick-up-point').remove();
+            // }
 
             this.$results.append($row);
         });
@@ -151,13 +164,13 @@ class StoreLocator {
         this.stores.each((store) => {
             store.is_shown = true;
 
-            if ((this.filters.open_saterday && !store.open_saterday) ||
-                (this.filters.has_atm && !store.has_atm) ||
-                (this.filters.open_in_evening && !store.open_in_evening) ||
-                (this.filters.has_pick_up_point && !store.has_pick_up_point)
-            ) {
-                store.is_shown = false;
-            }
+            // if ((this.filters.open_saterday && !store.open_saterday) ||
+            //     (this.filters.has_atm && !store.has_atm) ||
+            //     (this.filters.open_in_evening && !store.open_in_evening) ||
+            //     (this.filters.has_pick_up_point && !store.has_pick_up_point)
+            // ) {
+            //     store.is_shown = false;
+            // }
         });
     }
 
@@ -189,8 +202,8 @@ class StoreLocator {
         this.selected.is_shown = true;
 
         this.$storeLocator.find('.selected-store-id').val(id).trigger('change');
-        this.$storeLocator.find('.selected-store-name').val(this.selected.name).trigger('change');
-        this.$storeLocator.find('.selected-store-linscriptum').val(this.selected.linscriptum).trigger('change');
+        this.$storeLocator.find('.selected-store-name').val(this.selected.venueName).trigger('change');
+        // this.$storeLocator.find('.selected-store-linscriptum').val(this.selected.linscriptum).trigger('change');
 
         this.map.select(id);
     }
@@ -209,7 +222,7 @@ class StoreLocator {
     }
 
     clearSearchKeyUpTimeout() {
-        clearTimeout(this.searchTimeout);
+      clearTimeout(this.searchTimeout);
     }
 
     calculateDistances(location) {
@@ -240,7 +253,7 @@ class StoreLocator {
 
     onQueryChanged(event) {
         this.filters.query = $(event.target).val().toLowerCase();
-        this.$storeLocator.find('.mirror-field').val(this.filters.query);
+        // this.$storeLocator.find('.mirror-field').val(this.filters.query);
         this.setSearchKeyUpTimeout();
     }
 
@@ -424,7 +437,7 @@ class StoreMap {
     setMarkers(stores) {
         stores.each((store) => {
             let marker = new google.maps.Marker({
-                position: {lat: store.location.latitude, lng: store.location.longitude},
+                position: {lat: store.venueLatitude, lng: store.venueLongitude},
                 map: this.map,
                 icon: assetUrl + '/svg/marker.svg',
                 id: store.id
@@ -626,16 +639,8 @@ class StoreMap {
 class Store {
     constructor(properties) {
         this.id;
-        this.name;
-        this.linscriptum;
-        this.open_saterday;
-        this.open_in_evening;
-        this.has_atm;
-        this.has_pick_up_point;
-        this.has_skin_care;
-        this.url;
-        this.location;
-        this.opening_hours;
+        this.venueName;
+        this.venueWebsite;
         this.distance;
         this.is_shown = true;
 
@@ -647,9 +652,9 @@ class Store {
     setDistance(location) {
         let p = 0.017453292519943295; // Math.PI / 180
         let c = Math.cos;
-        let a = 0.5 - c((this.location.latitude - location.lat) * p) / 2 +
-            c(location.lat * p) * c(this.location.latitude * p) *
-            (1 - c((this.location.longitude - location.lng) * p)) / 2;
+        let a = 0.5 - c((this.venueLatitude - location.lat) * p) / 2 +
+            c(location.lat * p) * c(this.venueLatitude * p) *
+            (1 - c((this.venueLongitude - location.lng) * p)) / 2;
 
         this.distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
     }
