@@ -205,15 +205,15 @@
   });
 
   gulp.task('assets:svg-sprite', function() {
-    return gulp.src('source/assets/icon-svg/*.svg')
+    return gulp.src('app/assets/icon-svg/*.svg')
       .pipe(svgSprite({
         mode: "symbols",
         preview: false,
         svg: {
-          symbols: "svg-sprite.php"
+          symbols: "svg-sprite.handlebars"
         }
       }))
-      .pipe(gulp.dest('template-parts'));
+      .pipe(gulp.dest('app/views/elements'));
   });
 
   gulp.task('assets:other', function() {
@@ -318,7 +318,7 @@
     gulp.watch([paths.assets.fonts.src], ['assets:fonts']);
     gulp.watch([paths.assets.data.src], ['assets:data']);
     gulp.watch([paths.assets.images.src], ['assets:images']);
-    gulp.watch(['app/assets/svg/*.svg', paths.assets.svg.src], ['assets:svg', 'assets:svg-sprite']);
+    gulp.watch(['app/assets/svg/*.svg', 'app/assets/icon-svg/*.svg', paths.assets.svg.src], ['assets:svg', 'assets:svg-sprite']);
     gulp.watch([paths.assets.other.src], ['assets:other']);
   });
 

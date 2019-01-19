@@ -106,15 +106,21 @@ class StoreLocator {
             $row.find('.city').html(store.venueCity + ' <small class="distance"></small>');
             $row.find('.address').html(store.venueAddress);
 
-            if (store.venueCategory){
-              if (store.venueCategory == 'A'){
-                $row.find('.capacity').html('minimaal 450 bezoekers');
+            if (store.venueType){
+              if (store.venueType == 'A'){
+                $row.find('.capacity').html('Arena');
               }
-              if (store.venueCategory == 'B'){
-                $row.find('.capacity').html('minimaal 350 bezoekers');
+              if (store.venueType == 'B'){
+                $row.find('.capacity').html('Groot podium');
               }
-              if (store.venueCategory == 'C'){
-                $row.find('.capacity').html('tussen de 200-300 bezoekers');
+              if (store.venueType == 'C'){
+                $row.find('.capacity').html('Middelgroot podium');
+              }
+              if (store.venueType == 'D'){
+                $row.find('.capacity').html('Jeugdvereniging/Lokaal podium');
+              }
+              if (store.venueType == 'E'){
+                $row.find('.capacity').html('Cafe');
               }
             }
 

@@ -17486,13 +17486,22 @@ svg.icon {
   display: inline-block;
   width: auto;
   height: auto;
-  position: relative; }
+  position: relative;
+  width: 16px;
+  height: 16px; }
   svg.icon-arrow-left, svg.icon-arrow-right {
     width: 15px;
     height: 15px; }
   svg.icon-caret-down, svg.icon-caret-up {
     width: 14px;
     height: 14px; }
+
+.btn-icon {
+  padding: 10px; }
+
+.btn-primary {
+  background-color: #967750;
+  border: 0; }
 
 .store_locator {
   padding: 60px 20px;
@@ -17510,7 +17519,7 @@ svg.icon {
     display: none; }
   .store_locator .searchpanel {
     overflow: hidden;
-    color: blue;
+    color: #1E1E1E;
     padding: 0;
     z-index: 100;
     position: relative; }
@@ -17534,6 +17543,7 @@ svg.icon {
         .store_locator .searchpanel .searcharea {
           padding: 30px 40px 30px 50px; } }
       .store_locator .searchpanel .searcharea h2 {
+        color: #1E1E1E;
         font-size: 22px;
         line-height: 38px;
         font-weight: bold;
@@ -17602,12 +17612,17 @@ svg.icon {
       height: 40px;
       margin: 10px 0;
       position: relative; }
+      .store_locator .searchpanel .inputwrapper .btn-locate {
+        position: absolute;
+        left: 0;
+        height: 100%; }
+      .store_locator .searchpanel .inputwrapper .mirror-field.form-control {
+        padding-left: 35px; }
       @media print, screen and (min-width: 48em) {
         .store_locator .searchpanel .inputwrapper {
           margin-right: 30px; } }
       .store_locator .searchpanel .inputwrapper .form-control {
         border: none;
-        border-left: 1px solid grey;
         padding: 3px 36px 3px 12px;
         margin: 6px auto;
         border-radius: 0;
@@ -17615,15 +17630,15 @@ svg.icon {
         width: calc(100% - 36px);
         float: left; }
         .store_locator .searchpanel .inputwrapper .form-control::-webkit-input-placeholder {
-          color: blue; }
+          color: #1E1E1E; }
         .store_locator .searchpanel .inputwrapper .form-control:-ms-input-placeholder {
-          color: blue; }
+          color: #1E1E1E; }
         .store_locator .searchpanel .inputwrapper .form-control::-ms-input-placeholder {
-          color: blue; }
+          color: #1E1E1E; }
         .store_locator .searchpanel .inputwrapper .form-control::placeholder {
-          color: blue; }
+          color: #1E1E1E; }
         .store_locator .searchpanel .inputwrapper .form-control:focus {
-          color: blue;
+          color: #1E1E1E;
           -webkit-box-shadow: none;
           box-shadow: none; }
           .store_locator .searchpanel .inputwrapper .form-control:focus::-webkit-input-placeholder {
@@ -17634,64 +17649,26 @@ svg.icon {
             color: grey; }
           .store_locator .searchpanel .inputwrapper .form-control:focus::placeholder {
             color: grey; }
-      .store_locator .searchpanel .inputwrapper .btn-locate-disabled {
-        display: none;
-        position: absolute;
-        width: 36px;
-        height: 100%; }
-      .store_locator .searchpanel .inputwrapper .btn-icon {
-        height: 100%;
-        position: relative; }
-        .store_locator .searchpanel .inputwrapper .btn-icon svg {
-          position: absolute;
-          top: 10px; }
-        .store_locator .searchpanel .inputwrapper .btn-icon:not(:disabled):hover svg path {
-          fill: blue; }
-        .store_locator .searchpanel .inputwrapper .btn-icon:disabled {
-          cursor: default; }
-          .store_locator .searchpanel .inputwrapper .btn-icon:disabled + .btn-locate-disabled {
-            display: block; }
-        .store_locator .searchpanel .inputwrapper .btn-icon.left {
-          float: left;
-          width: 36px; }
-          .store_locator .searchpanel .inputwrapper .btn-icon.left svg {
-            position: absolute;
-            left: 9px;
-            top: 10px; }
-        .store_locator .searchpanel .inputwrapper .btn-icon.right {
-          position: absolute;
-          background-color: white;
-          float: right;
-          width: 38px;
-          top: 0;
-          right: 0; }
-          .store_locator .searchpanel .inputwrapper .btn-icon.right svg {
-            position: absolute;
-            left: 7px;
-            top: 10px; }
-            @media print, screen and (min-width: 48em) {
-              .store_locator .searchpanel .inputwrapper .btn-icon.right svg {
-                left: 10px; } }
   .store_locator .results {
-    background-color: grey;
+    background-color: #EEEAE5;
     display: block;
     max-height: 240px;
     -ms-overflow-style: scrollbar;
     scrollbar-base-color: transparent;
-    scrollbar-face-color: grey;
+    scrollbar-face-color: #EEEAE5;
     scrollbar-highlight-color: transparent;
-    scrollbar-track-color: grey;
-    scrollbar-arrow-color: grey;
-    scrollbar-shadow-color: grey;
+    scrollbar-track-color: blue;
+    scrollbar-arrow-color: red;
+    scrollbar-shadow-color: green;
     overflow-y: scroll;
     overflow-x: hidden; }
     .store_locator .results::-webkit-scrollbar-track {
       background-color: transparent; }
     .store_locator .results::-webkit-scrollbar {
       width: 10px;
-      background-color: grey; }
+      background-color: rgba(30, 30, 30, 0.05); }
     .store_locator .results::-webkit-scrollbar-thumb {
-      background-color: grey;
+      background-color: #967750;
       border-radius: 10px; }
     @media print, screen and (min-width: 64em) {
       .store_locator .results {
@@ -17715,18 +17692,22 @@ svg.icon {
         cursor: pointer; }
       .store_locator .results .result:last-of-type {
         border-bottom: none; }
+      .store_locator .results .result .more-info {
+        display: none; }
       .store_locator .results .result.active {
         pointer-events: none;
         cursor: default; }
         @media screen and (min-width: 90em) {
           .store_locator .results .result.active {
             min-height: 147px; } }
+        .store_locator .results .result.active .more-info {
+          display: block; }
         .store_locator .results .result.active .details .text .link-apotheek {
           display: block; }
         .store_locator .results .result.active .form-check {
           display: block; }
         .store_locator .results .result.active .graphic .icon {
-          background-color: blue; }
+          background-color: #967750; }
           .store_locator .results .result.active .graphic .icon .icon-plus {
             display: none; }
           .store_locator .results .result.active .graphic .icon .icon-check {
@@ -17804,23 +17785,10 @@ svg.icon {
       pointer-events: auto;
       margin-bottom: 20px; }
     .store_locator .results .details {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-      flex-direction: column;
       font-size: 13px;
       line-height: 22px;
       padding: 23px 10px 24px 0;
       width: 100%; }
-      @media print, screen and (min-width: 48em) {
-        .store_locator .results .details {
-          -webkit-box-orient: horizontal;
-          -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-          flex-direction: row; } }
       .store_locator .results .details .text {
         display: -webkit-box;
         display: -ms-flexbox;
@@ -17835,7 +17803,7 @@ svg.icon {
             font-size: 15px; } }
         .store_locator .results .details .text .name {
           font-weight: bold;
-          color: white;
+          color: #1E1E1E;
           max-width: 255px;
           max-height: 44px;
           overflow: hidden;
@@ -17848,12 +17816,10 @@ svg.icon {
             .store_locator .results .details .text .name {
               max-width: 260px; } }
         .store_locator .results .details .text .city, .store_locator .results .details .text .address {
-          color: darkgrey; }
+          color: #967750; }
         .store_locator .results .details .text .capacity {
-          color: black;
+          color: #1E1E1E;
           font-size: 11px; }
-        .store_locator .results .details .text .opening-hrs {
-          color: blue; }
         .store_locator .results .details .text .link-apotheek {
           display: none;
           margin-top: 10px;
@@ -17923,6 +17889,9 @@ svg.icon {
       margin-bottom: 0; }
     .store_locator .results img {
       cursor: pointer; }
+
+.hidden {
+  display: none !important; }
 
 #store-locator-map {
   position: absolute;

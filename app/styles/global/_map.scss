@@ -22,7 +22,7 @@
 
 	.searchpanel {
 		overflow: hidden;
-		color: blue;
+		color: $color-darkgray;
 		padding: 0;
     z-index:100;
     position: relative;
@@ -52,6 +52,7 @@
 			}
 
 			h2 {
+				color:$color-darkgray;
 				font-size: 22px;
 				line-height: 38px;
 				font-weight: bold;
@@ -166,8 +167,15 @@
 			font-family: Ubuntu;
 			height: 40px;
 			margin: 10px 0;
-            position: relative;
-
+      position: relative;
+			.btn-locate{
+				position: absolute;
+				left:0;
+				height:100%;
+			}
+			.mirror-field.form-control{
+				padding-left:35px;
+			}
 			@include breakpoint(medium) {
 				margin-right: 30px;
 			}
@@ -177,7 +185,6 @@
 
 			.form-control {
 				border: none;
-				border-left: 1px solid grey;
         padding: 3px 36px 3px 12px;
 				margin: 6px auto;
 				border-radius: 0;
@@ -186,93 +193,15 @@
 				float: left;
 
 				&::placeholder {
-					color: blue;
+					color: $color-darkgray;
 				}
 
 				&:focus {
-					color: blue;
+					color: $color-darkgray;
 					box-shadow: none;
 
 					&::placeholder {
 						color: grey;
-					}
-
-				}
-
-			}
-
-			&:before {
-				// 	content: url('../svg/target.svg');
-				// 	width: 18px;
-				// 	height: 18px;
-				// 	display: block;
-				// 	position: absolute;
-				// 	left: 30px;
-				// 	top: 10px;
-				//
-			}
-
-            .btn-locate-disabled {
-                display: none;
-                position: absolute;
-                width: 36px;
-                height: 100%;
-            }
-
-			.btn-icon {
-				height: 100%;
-				position: relative;
-
-				svg {
-					position: absolute;
-					// right: 36px;
-					top: 10px;
-				}
-
-                &:not(:disabled):hover {
-					svg {
-						path {
-							fill: blue;
-						}
-                    }
-                }
-
-                &:disabled {
-                    cursor: default;
-                    + .btn-locate-disabled {
-                        display: block;
-					}
-				}
-
-				&.left {
-					float: left;
-					width: 36px;
-
-					svg {
-						position: absolute;
-						left: 9px;
-						top: 10px;
-					}
-
-				}
-
-				&.right {
-                    position: absolute;
-                    background-color: white;
-					float: right;
-					width: 38px;
-					top: 0;
-					right: 0;
-
-					svg {
-						position: absolute;
-						left: 7px;
-						top: 10px;
-
-						@include breakpoint(medium) {
-							left: 10px;
-						}
-
 					}
 
 				}
@@ -284,16 +213,16 @@
 	}
 
 	.results {
-		background-color: grey;
+		background-color: $color-beige;
 		display: block;
     max-height: 240px;
 		-ms-overflow-style:scrollbar;
 		scrollbar-base-color: transparent;
-	  scrollbar-face-color: grey;
+	  scrollbar-face-color: $color-beige;
 	  scrollbar-highlight-color: transparent;
-	  scrollbar-track-color: grey;
-	  scrollbar-arrow-color: grey;
-	  scrollbar-shadow-color: grey;
+	  scrollbar-track-color: blue;
+	  scrollbar-arrow-color: red;
+	  scrollbar-shadow-color: green;
 		overflow-y: scroll;
 		overflow-x: hidden;
 		&::-webkit-scrollbar-track {
@@ -301,10 +230,10 @@
     }
     &::-webkit-scrollbar {
         width: 10px;
-				background-color: grey;
+				background-color: rgba($color-darkgray,0.05);
     }
     &::-webkit-scrollbar-thumb {
-        background-color: grey;
+        background-color: $color-gold;
         border-radius:10px;
     }
 		@include breakpoint(large) {
@@ -339,11 +268,18 @@
 			&.favorite{
 			}
 
+			.more-info{
+				display:none;
+			}
+
 			&.active {
 				pointer-events:none;
 				cursor:default;
 				@include breakpoint(xlarge) {
 					min-height: 147px;
+				}
+				.more-info{
+					display: block;
 				}
 
 				.details .text .link-apotheek{
@@ -355,7 +291,7 @@
 				}
 
 				.graphic .icon {
-					background-color: blue;
+					background-color: $color-gold;
 
 					.icon-plus {
 						display: none;
@@ -460,16 +396,10 @@
 			margin-bottom: 20px;
 		}
 		.details {
-			display: flex;
-			flex-direction: column;
 			font-size: 13px;
 			line-height: 22px;
 			padding: 23px 10px 24px 0;
 			width: 100%;
-
-			@include breakpoint(medium) {
-				flex-direction: row;
-			}
 
 			.text {
 				display: flex;
@@ -482,7 +412,7 @@
 
 				.name {
 					font-weight: bold;
-					color: white;
+					color: $color-darkgray;
 					max-width: 255px;
 					max-height: 44px;
 					overflow: hidden;
@@ -500,15 +430,11 @@
 				}
 
 				.city, .address {
-					color: darkgrey;
+					color: $color-gold;
 				}
 				.capacity{
-					color:black;
+					color:$color-darkgray;
 					font-size:11px;
-				}
-
-				.opening-hrs {
-					color: blue;
 				}
 				.link-apotheek{
 					display: none;
@@ -618,6 +544,10 @@
 
 	}
 
+}
+
+.hidden{
+	display: none!important;
 }
 
 #store-locator-map {
